@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Friday AI Trading System is a state-of-the-art algorithmic trading platform that combines artificial intelligence, machine learning, and natural language processing to create an intelligent, adaptive trading system. Built with production-ready architecture, the system provides comprehensive trading capabilities from market analysis to trade execution, featuring sophisticated risk management and advanced analytics.
+The Friday AI Trading System is an algorithmic trading platform that combines machine learning and natural language processing to create an intelligent, adaptive trading system. Built with production-ready architecture, the system provides comprehensive trading capabilities from market analysis to trade execution, featuring sophisticated risk management and advanced analytics.
 
 ## 🚀 Key Features
 
