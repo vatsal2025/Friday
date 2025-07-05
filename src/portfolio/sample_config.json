@@ -1,0 +1,89 @@
+{
+    "portfolio_manager": {
+        "portfolio_id": "sample_portfolio",
+        "initial_cash": 100000.0,
+        "base_currency": "USD",
+        "track_history": true,
+        "history_granularity": "daily"
+    },
+    "performance_calculator": {
+        "benchmark_symbol": "SPY",
+        "risk_free_rate": 0.02,
+        "calculation_frequency": "daily",
+        "rolling_window_days": 252
+    },
+    "tax_manager": {
+        "default_tax_lot_method": "FIFO",
+        "wash_sale_window_days": 30,
+        "long_term_threshold_days": 365,
+        "symbol_specific_methods": {
+            "AAPL": "HIFO",
+            "MSFT": "LIFO"
+        }
+    },
+    "allocation_manager": {
+        "rebalance_method": "THRESHOLD",
+        "rebalance_threshold": 5.0,
+        "calendar_rebalance_frequency": "QUARTERLY",
+        "allocation_targets": [
+            {
+                "name": "US_STOCKS",
+                "category": "equity",
+                "target_percentage": 60.0,
+                "threshold": 5.0,
+                "assets": [
+                    {"symbol": "AAPL", "target_percentage": 15.0},
+                    {"symbol": "MSFT", "target_percentage": 15.0},
+                    {"symbol": "AMZN", "target_percentage": 10.0},
+                    {"symbol": "GOOGL", "target_percentage": 10.0},
+                    {"symbol": "META", "target_percentage": 10.0}
+                ]
+            },
+            {
+                "name": "BONDS",
+                "category": "fixed_income",
+                "target_percentage": 30.0,
+                "threshold": 3.0,
+                "assets": [
+                    {"symbol": "AGG", "target_percentage": 50.0},
+                    {"symbol": "BND", "target_percentage": 50.0}
+                ]
+            },
+            {
+                "name": "CASH",
+                "category": "cash",
+                "target_percentage": 10.0,
+                "threshold": 2.0,
+                "assets": [
+                    {"symbol": "CASH", "target_percentage": 100.0}
+                ]
+            }
+        ]
+    },
+    "risk_management": {
+        "use_risk_manager": true,
+        "max_position_size_percentage": 20.0,
+        "max_sector_exposure_percentage": 40.0,
+        "stop_loss_percentage": 15.0,
+        "var_confidence_level": 0.95,
+        "var_time_horizon_days": 1,
+        "stress_test_scenarios": [
+            {
+                "name": "Market Crash",
+                "asset_shocks": {
+                    "equity": -0.30,
+                    "fixed_income": -0.10,
+                    "cash": 0.0
+                }
+            },
+            {
+                "name": "Rising Rates",
+                "asset_shocks": {
+                    "equity": -0.05,
+                    "fixed_income": -0.15,
+                    "cash": 0.01
+                }
+            }
+        ]
+    }
+}

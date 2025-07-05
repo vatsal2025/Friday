@@ -1,0 +1,111 @@
+{
+    "service_id": "mock_broker_1",
+    "service_type": "BROKER",
+    "name": "Mock Interactive Brokers",
+    "auto_start": true,
+    "authentication": {
+        "type": "basic",
+        "valid_credentials": [
+            {
+                "username": "demo",
+                "password": "password",
+                "account_id": "DU12345"
+            },
+            {
+                "username": "test",
+                "password": "test123",
+                "account_id": "DU67890"
+            }
+        ]
+    },
+    "behavior": {
+        "error_rate": 0.05,
+        "timeout_rate": 0.03,
+        "rate_limit_rate": 0.02,
+        "maintenance_rate": 0.01,
+        "latency": {
+            "base_ms": 100,
+            "variation_ms": 50
+        },
+        "endpoints": {
+            "place_order": {
+                "error_rate": 0.1,
+                "latency": {
+                    "base_ms": 200,
+                    "variation_ms": 100
+                }
+            }
+        }
+    },
+    "accounts": [
+        {
+            "account_id": "DU12345",
+            "name": "Demo Account",
+            "type": "margin",
+            "currency": "USD",
+            "balance": 100000.0,
+            "buying_power": 200000.0
+        },
+        {
+            "account_id": "DU67890",
+            "name": "Test Account",
+            "type": "cash",
+            "currency": "USD",
+            "balance": 50000.0,
+            "buying_power": 50000.0
+        }
+    ],
+    "positions": {
+        "DU12345": {
+            "AAPL": {
+                "quantity": 100,
+                "average_price": 150.0
+            },
+            "MSFT": {
+                "quantity": 50,
+                "average_price": 250.0
+            },
+            "GOOGL": {
+                "quantity": 25,
+                "average_price": 2800.0
+            }
+        },
+        "DU67890": {
+            "AMZN": {
+                "quantity": 10,
+                "average_price": 3200.0
+            },
+            "TSLA": {
+                "quantity": 20,
+                "average_price": 700.0
+            }
+        }
+    },
+    "orders": [
+        {
+            "order_id": "1001",
+            "account_id": "DU12345",
+            "symbol": "AAPL",
+            "side": "buy",
+            "quantity": 10,
+            "order_type": "limit",
+            "price": 145.0,
+            "status": "filled",
+            "created_at": 1625097600,
+            "filled_at": 1625097900,
+            "filled_price": 145.0
+        },
+        {
+            "order_id": "1002",
+            "account_id": "DU67890",
+            "symbol": "TSLA",
+            "side": "sell",
+            "quantity": 5,
+            "order_type": "market",
+            "status": "filled",
+            "created_at": 1625184000,
+            "filled_at": 1625184060,
+            "filled_price": 710.0
+        }
+    ]
+}

@@ -1,0 +1,156 @@
+{
+    "service_id": "mock_market_data_1",
+    "service_type": "MARKET_DATA",
+    "name": "Mock Alpha Vantage",
+    "auto_start": true,
+    "authentication": {
+        "type": "api_key",
+        "valid_keys": ["demo_api_key", "test_api_key"]
+    },
+    "behavior": {
+        "error_rate": 0.03,
+        "timeout_rate": 0.02,
+        "rate_limit_rate": 0.1,
+        "maintenance_rate": 0.01,
+        "latency": {
+            "base_ms": 150,
+            "variation_ms": 75
+        },
+        "endpoints": {
+            "get_bars": {
+                "latency": {
+                    "base_ms": 300,
+                    "variation_ms": 100
+                }
+            }
+        }
+    },
+    "symbols": [
+        {
+            "symbol": "AAPL",
+            "name": "Apple Inc.",
+            "type": "stock",
+            "exchange": "NASDAQ"
+        },
+        {
+            "symbol": "MSFT",
+            "name": "Microsoft Corporation",
+            "type": "stock",
+            "exchange": "NASDAQ"
+        },
+        {
+            "symbol": "GOOGL",
+            "name": "Alphabet Inc.",
+            "type": "stock",
+            "exchange": "NASDAQ"
+        },
+        {
+            "symbol": "AMZN",
+            "name": "Amazon.com Inc.",
+            "type": "stock",
+            "exchange": "NASDAQ"
+        },
+        {
+            "symbol": "TSLA",
+            "name": "Tesla Inc.",
+            "type": "stock",
+            "exchange": "NASDAQ"
+        }
+    ],
+    "quotes": {
+        "AAPL": {
+            "symbol": "AAPL",
+            "price": 150.25,
+            "bid": 150.20,
+            "ask": 150.30,
+            "volume": 45678901,
+            "timestamp": 1625097600
+        },
+        "MSFT": {
+            "symbol": "MSFT",
+            "price": 252.75,
+            "bid": 252.70,
+            "ask": 252.80,
+            "volume": 23456789,
+            "timestamp": 1625097600
+        },
+        "GOOGL": {
+            "symbol": "GOOGL",
+            "price": 2805.50,
+            "bid": 2805.00,
+            "ask": 2806.00,
+            "volume": 1234567,
+            "timestamp": 1625097600
+        },
+        "AMZN": {
+            "symbol": "AMZN",
+            "price": 3210.75,
+            "bid": 3210.50,
+            "ask": 3211.00,
+            "volume": 2345678,
+            "timestamp": 1625097600
+        },
+        "TSLA": {
+            "symbol": "TSLA",
+            "price": 712.25,
+            "bid": 712.00,
+            "ask": 712.50,
+            "volume": 34567890,
+            "timestamp": 1625097600
+        }
+    },
+    "bars": {
+        "AAPL_1d": [
+            {
+                "timestamp": 1624924800,
+                "open": 148.50,
+                "high": 151.20,
+                "low": 147.80,
+                "close": 150.25,
+                "volume": 45678901
+            },
+            {
+                "timestamp": 1625011200,
+                "open": 150.30,
+                "high": 152.75,
+                "low": 149.50,
+                "close": 151.80,
+                "volume": 43567890
+            },
+            {
+                "timestamp": 1625097600,
+                "open": 151.90,
+                "high": 153.25,
+                "low": 150.75,
+                "close": 152.50,
+                "volume": 41234567
+            }
+        ],
+        "MSFT_1d": [
+            {
+                "timestamp": 1624924800,
+                "open": 250.10,
+                "high": 253.20,
+                "low": 249.50,
+                "close": 252.75,
+                "volume": 23456789
+            },
+            {
+                "timestamp": 1625011200,
+                "open": 252.80,
+                "high": 255.30,
+                "low": 251.90,
+                "close": 254.50,
+                "volume": 21345678
+            },
+            {
+                "timestamp": 1625097600,
+                "open": 254.60,
+                "high": 256.75,
+                "low": 253.80,
+                "close": 255.90,
+                "volume": 19876543
+            }
+        ]
+    }
+}

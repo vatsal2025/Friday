@@ -1,0 +1,193 @@
+{
+    "service_id": "mock_financial_data_1",
+    "service_type": "FINANCIAL_DATA",
+    "name": "Mock Financial Data Provider",
+    "auto_start": true,
+    "authentication": {
+        "type": "api_key",
+        "valid_keys": ["demo_api_key", "test_api_key"]
+    },
+    "behavior": {
+        "error_rate": 0.02,
+        "timeout_rate": 0.01,
+        "rate_limit_rate": 0.05,
+        "maintenance_rate": 0.005,
+        "latency": {
+            "base_ms": 200,
+            "variation_ms": 100
+        },
+        "endpoints": {
+            "get_financials": {
+                "latency": {
+                    "base_ms": 400,
+                    "variation_ms": 150
+                }
+            }
+        }
+    },
+    "companies": [
+        {
+            "symbol": "AAPL",
+            "name": "Apple Inc.",
+            "sector": "Technology",
+            "industry": "Consumer Electronics",
+            "exchange": "NASDAQ",
+            "description": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide."
+        },
+        {
+            "symbol": "MSFT",
+            "name": "Microsoft Corporation",
+            "sector": "Technology",
+            "industry": "Software—Infrastructure",
+            "exchange": "NASDAQ",
+            "description": "Microsoft Corporation develops, licenses, and supports software, services, devices, and solutions worldwide."
+        },
+        {
+            "symbol": "GOOGL",
+            "name": "Alphabet Inc.",
+            "sector": "Technology",
+            "industry": "Internet Content & Information",
+            "exchange": "NASDAQ",
+            "description": "Alphabet Inc. provides various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America."
+        },
+        {
+            "symbol": "AMZN",
+            "name": "Amazon.com Inc.",
+            "sector": "Consumer Cyclical",
+            "industry": "Internet Retail",
+            "exchange": "NASDAQ",
+            "description": "Amazon.com, Inc. engages in the retail sale of consumer products and subscriptions in North America and internationally."
+        },
+        {
+            "symbol": "TSLA",
+            "name": "Tesla Inc.",
+            "sector": "Consumer Cyclical",
+            "industry": "Auto Manufacturers",
+            "exchange": "NASDAQ",
+            "description": "Tesla, Inc. designs, develops, manufactures, leases, and sells electric vehicles, and energy generation and storage systems."
+        }
+    ],
+    "financials": {
+        "AAPL": {
+            "quarterly": [
+                {
+                    "period": "2023-Q1",
+                    "revenue": 94.84,
+                    "net_income": 30.0,
+                    "eps": 1.88,
+                    "pe_ratio": 25.5,
+                    "dividend": 0.23,
+                    "dividend_yield": 0.61
+                },
+                {
+                    "period": "2023-Q2",
+                    "revenue": 81.8,
+                    "net_income": 24.16,
+                    "eps": 1.52,
+                    "pe_ratio": 27.3,
+                    "dividend": 0.24,
+                    "dividend_yield": 0.59
+                }
+            ],
+            "annual": [
+                {
+                    "period": "2022",
+                    "revenue": 394.33,
+                    "net_income": 99.8,
+                    "eps": 6.11,
+                    "pe_ratio": 24.6,
+                    "dividend": 0.92,
+                    "dividend_yield": 0.61
+                },
+                {
+                    "period": "2021",
+                    "revenue": 365.82,
+                    "net_income": 94.68,
+                    "eps": 5.61,
+                    "pe_ratio": 26.8,
+                    "dividend": 0.85,
+                    "dividend_yield": 0.57
+                }
+            ]
+        },
+        "MSFT": {
+            "quarterly": [
+                {
+                    "period": "2023-Q1",
+                    "revenue": 52.75,
+                    "net_income": 18.3,
+                    "eps": 2.45,
+                    "pe_ratio": 32.1,
+                    "dividend": 0.68,
+                    "dividend_yield": 0.81
+                },
+                {
+                    "period": "2023-Q2",
+                    "revenue": 56.19,
+                    "net_income": 20.08,
+                    "eps": 2.69,
+                    "pe_ratio": 30.5,
+                    "dividend": 0.68,
+                    "dividend_yield": 0.79
+                }
+            ],
+            "annual": [
+                {
+                    "period": "2022",
+                    "revenue": 198.27,
+                    "net_income": 72.74,
+                    "eps": 9.65,
+                    "pe_ratio": 26.2,
+                    "dividend": 2.48,
+                    "dividend_yield": 0.98
+                },
+                {
+                    "period": "2021",
+                    "revenue": 168.09,
+                    "net_income": 61.27,
+                    "eps": 8.05,
+                    "pe_ratio": 31.4,
+                    "dividend": 2.24,
+                    "dividend_yield": 0.89
+                }
+            ]
+        }
+    },
+    "news": [
+        {
+            "symbol": "AAPL",
+            "title": "Apple Announces New iPhone Model with Revolutionary Features",
+            "summary": "Apple Inc. has unveiled its latest iPhone model with groundbreaking features including enhanced AI capabilities and improved battery life.",
+            "url": "https://example.com/news/apple-new-iphone",
+            "published_at": 1625097600
+        },
+        {
+            "symbol": "AAPL",
+            "title": "Apple Reports Record Q2 Earnings, Boosts Dividend",
+            "summary": "Apple Inc. reported better-than-expected quarterly results and announced an increase in its dividend payout to shareholders.",
+            "url": "https://example.com/news/apple-q2-earnings",
+            "published_at": 1625184000
+        },
+        {
+            "symbol": "MSFT",
+            "title": "Microsoft Cloud Business Continues Strong Growth",
+            "summary": "Microsoft's Azure cloud services showed impressive growth in the latest quarter, driving overall company performance.",
+            "url": "https://example.com/news/microsoft-cloud-growth",
+            "published_at": 1625270400
+        },
+        {
+            "symbol": "GOOGL",
+            "title": "Google Announces New AI Research Breakthrough",
+            "summary": "Alphabet's Google division has announced a significant advancement in artificial intelligence research that could transform multiple industries.",
+            "url": "https://example.com/news/google-ai-breakthrough",
+            "published_at": 1625356800
+        },
+        {
+            "symbol": "TSLA",
+            "title": "Tesla Delivers Record Number of Vehicles in Q2",
+            "summary": "Tesla Inc. has reported record vehicle deliveries for the second quarter, exceeding analyst expectations despite supply chain challenges.",
+            "url": "https://example.com/news/tesla-record-deliveries",
+            "published_at": 1625443200
+        }
+    ]
+}

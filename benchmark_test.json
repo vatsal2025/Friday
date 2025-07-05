@@ -1,0 +1,24 @@
+{
+  "dataset_size": "1month",
+  "num_rows": 43200,
+  "enabled_feature_sets": [
+    "price_derived",
+    "moving_averages",
+    "volatility",
+    "momentum",
+    "volume",
+    "trend"
+  ],
+  "total_features": 42,
+  "new_features_generated": 42,
+  "processing_time_seconds": 9.007409811019897,
+  "processing_rate_rows_per_second": 4796.051351760193,
+  "memory_before_mb": 130.48828125,
+  "memory_after_mb": 150.0078125,
+  "memory_increase_mb": 19.51953125,
+  "original_data_size_mb": 2.9853897094726562,
+  "processed_data_size_mb": 16.828163146972656,
+  "data_size_increase_mb": 13.8427734375,
+  "memory_per_feature_mb": 0.46475074404761907,
+  "timestamp": "2025-07-04T16:17:06.653317"
+}

@@ -1,0 +1,78 @@
+Friday AI Trading System - Docker Services Setup Summary
+=========================================================
+
+Files Created:
+==============
+
+1. docker-compose.yml
+   - Production-ready MongoDB 6.0.17 and Redis 7.2.5 services
+   - Ports exposed as configured in unified_config.py (27017, 6379)
+   - Health checks for both services
+   - Persistent data volumes mounted to storage/data/
+
+2. wait_for_services.py
+   - Python utility for health checking services
+   - Waits for MongoDB and Redis to be ready
+   - Can be used by master startup script
+   - Supports custom timeouts and service selection
+
+3. manage_docker_services.bat (Windows)
+   - Windows batch script for service management
+   - Commands: start, stop, restart, status, logs, clean, setup, health
+   - Colored output and error handling
+
+4. manage_docker_services.sh (Linux/macOS)
+   - Unix shell script for service management  
+   - Same functionality as Windows version
+   - Cross-platform compatibility
+
+5. DOCKER_SERVICES_GUIDE.md
+   - Comprehensive documentation
+   - Setup instructions, troubleshooting
+   - Production considerations
+   - Integration examples
+
+Directory Structure Created:
+============================
+storage/data/mongodb/     - MongoDB persistent data
+storage/data/redis/       - Redis persistent data
+
+Service Specifications:
+======================
+
+MongoDB:
+- Image: mongo:6.0.17 (production version)
+- Port: 27017 (from unified_config.py)
+- Authentication: admin/friday_mongo_password
+- Database: friday
+- Health check: mongosh ping command
+- Volume mounts: ./storage/data/mongodb:/data/db
+
+Redis:
+- Image: redis:7.2.5-alpine (production version)
+- Port: 6379 (from unified_config.py)  
+- Memory limit: 512MB (from unified_config.py)
+- Persistence: AOF enabled
+- Health check: redis-cli ping command
+- Volume mount: ./storage/data/redis:/data
+
+Usage Examples:
+===============
+
+Quick Setup:
+manage_docker_services.bat setup
+
+Start Services:
+manage_docker_services.bat start
+
+Check Health:
+python wait_for_services.py
+
+View Status:
+manage_docker_services.bat status
+
+Integration in Master Script:
+python wait_for_services.py && start_friday_system.py
+
+All services are configured to work with the existing unified_config.py
+without requiring any configuration changes.

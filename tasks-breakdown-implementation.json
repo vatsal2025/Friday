@@ -1,0 +1,668 @@
+{
+  "project": "Friday AI Trading System - Full Implementation",
+  "description": "Detailed task breakdown to implement and start all four phases to production-ready level",
+  "phases": [
+    {
+      "phase": "Phase 1: Foundation & Infrastructure Setup",
+      "tasks": [
+        {
+          "id": "P1-T1",
+          "title": "Environment Configuration",
+          "description": "Set up the development environment and install dependencies",
+          "steps": [
+            "Verify Python 3.10+ is installed",
+            "Create and activate virtual environment",
+            "Install dependencies from requirements.txt",
+            "Verify all dependencies install without conflicts",
+            "Check for any dependency updates needed",
+            "TEST: Verify environment is properly configured"
+          ]
+        },
+        {
+          "id": "P1-T2",
+          "title": "MCP Server Configuration",
+          "description": "Configure and start MCP servers for memory and sequential thinking",
+          "steps": [
+            "Configure MCP server settings in unified_config.py",
+            "Test MCP server configuration",
+            "Start memory MCP server using start_mcp_servers script",
+            "Start sequential thinking MCP server",
+            "TEST: Verify MCP servers are running correctly",
+            "Set up persistence storage for memory MCP server",
+            "ISSUE CHECK: Resolve any connection or configuration issues"
+          ]
+        },
+        {
+          "id": "P1-T3",
+          "title": "Database Setup",
+          "description": "Set up and configure databases for various data storage needs",
+          "steps": [
+            "Set up MongoDB for knowledge base storage",
+            "Configure Redis for real-time data caching",
+            "Create data schemas for historical market data",
+            "Set up databases for model storage",
+            "Configure database backup procedures",
+            "TEST: Verify database connections and operations",
+            "ISSUE CHECK: Resolve any database connection issues"
+          ]
+        },
+        {
+          "id": "P1-T4",
+          "title": "Storage Directory Configuration",
+          "description": "Configure storage directories for various system components",
+          "steps": [
+            "Set up data storage directories in storage/data/",
+            "Configure log directories in storage/logs/",
+            "Set up model storage in storage/models/",
+            "Configure memory storage in storage/memory/",
+            "Ensure proper permissions for all directories",
+            "TEST: Verify directory structure and permissions"
+          ]
+        },
+        {
+          "id": "P1-T5",
+          "title": "Core Infrastructure Activation",
+          "description": "Initialize and configure core infrastructure components",
+          "steps": [
+            "Initialize event system in src/infrastructure/event/",
+            "Configure logging system in src/infrastructure/logging/",
+            "Set up config management in src/infrastructure/config/",
+            "Initialize security components in src/infrastructure/security/",
+            "Configure caching mechanisms",
+            "TEST: Verify all core infrastructure components",
+            "ISSUE CHECK: Address any configuration or initialization issues"
+          ]
+        },
+        {
+          "id": "P1-T6",
+          "title": "Integration & Communication Setup",
+          "description": "Configure integration and communication components",
+          "steps": [
+            "Set up communication system between components",
+            "Initialize notification system",
+            "Configure phase integration bridges",
+            "Set up API endpoints for internal communication",
+            "Configure external API connections",
+            "TEST: Verify communication between components",
+            "ISSUE CHECK: Resolve any integration issues"
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "Phase 2: Data Pipeline & Knowledge Extraction",
+      "tasks": [
+        {          "id": "P2-T1",
+          "title": "Data Source Configuration",
+          "description": "Configure and test data acquisition from various sources",
+          "steps": [
+            "Configure historical data sources in data config",
+            "Set up real-time data sources",
+            "Configure alternative data sources",
+            "Set up data source authentication",
+            "Initialize data cache system",
+            "Configure src/data/market directory for primary market data",
+            "Set up data directory scanning for automatic processing",
+            "TEST: Fetch sample data from each source",
+            "ISSUE CHECK: Resolve any data source connection issues"
+          ]
+        },
+        {
+          "id": "P2-T2",
+          "title": "Data Pipeline Activation",
+          "description": "Initialize and test data processing pipelines",
+          "steps": [
+            "Configure data validation rules",
+            "Set up data cleaning processes",
+            "Configure feature engineering pipeline",
+            "Set up data storage procedures",
+            "Initialize the DataPipeline class",
+            "Run test data through the pipeline",
+            "TEST: Validate output data quality",
+            "ISSUE CHECK: Resolve any pipeline processing issues"
+          ]
+        },
+        {
+          "id": "P2-T3",
+          "title": "WebSocket Streaming Setup",
+          "description": "Configure and test real-time data streaming",
+          "steps": [
+            "Configure WebSocketAdapter",
+            "Initialize WebSocketDataStream",
+            "Set up StreamingMarketDataConnector",
+            "Configure WebSocketStreamFactory",
+            "Test real-time data reception",
+            "Implement data throttling mechanisms",
+            "TEST: Verify real-time updates",
+            "ISSUE CHECK: Address any streaming or latency issues"
+          ]
+        },        {          "id": "P2-T4",
+          "title": "Book Knowledge Extraction Setup",
+          "description": "Configure and test knowledge extraction from books",
+          "steps": [
+            "Configure OCR book digitization settings with multiple OCR engines",
+            "Implement image preprocessing for book scans and charts",
+            "Set up MultimodalContentProcessor for different content types (text, tables, charts, formulas)",
+            "Initialize BookKnowledgeExtractor with advanced NLP models",
+            "Configure knowledge extraction rules and taxonomies",
+            "Create comprehensive book inventory from books in storage/books/ directory with metadata",
+            "Implement book segmentation by chapters and topics",
+            "Configure extraction priority based on book relevance",
+            "Create optimized processing pipeline for all trading books",
+            "Implement knowledge validation and cross-referencing between sources",
+            "Set up knowledge classification by strategy types",
+            "Test extraction with book content across different formats",
+            "Implement knowledge base storage with versioning",
+            "Create knowledge extraction metrics and quality assessment",
+            "TEST: Verify extraction accuracy with manual verification",
+            "ISSUE CHECK: Address any extraction quality issues or inconsistencies"
+          ]
+        },
+        {
+          "id": "P2-T5",
+          "title": "Knowledge Base Population",
+          "description": "Build and populate the knowledge base",
+          "steps": [
+            "Initialize KnowledgeBaseBuilder",
+            "Configure knowledge categorization rules",
+            "Set up MongoDB collections for knowledge storage",
+            "Process books to populate knowledge base",
+            "Validate knowledge item storage",
+            "TEST: Query knowledge base for extracted rules",
+            "ISSUE CHECK: Resolve any storage or retrieval issues"
+          ]
+        },        {
+          "id": "P2-T6",
+          "title": "Strategy Generation from Knowledge",
+          "description": "Configure and test strategy generation from extracted knowledge",
+          "steps": [
+            "Initialize StrategyGenerator component with configurable templates",
+            "Configure comprehensive rule conversion settings",
+            "Implement strategy pattern detection from knowledge base",
+            "Set up multi-level strategy generation (entry/exit rules, risk management, position sizing,etc)",
+            "Create strategy taxonomy and classification system",
+            "Generate strategies from multiple knowledge sources with cross-validation",
+            "Implement strategy optimization with genetic algorithms",
+            "Test generating executable tradable strategies from rules",
+            "Set up strategy verification with statistical validation",
+            "Create comprehensive strategy metadata and documentation",
+            "Validate generated strategies with robust backtesting",
+            "Implement strategy scoring and ranking system",
+            "Set up strategy storage in knowledge base with versioning",
+            "Create strategy export functionality for backtesting engine",
+            "Implement strategy parameter sensitivity analysis",
+            "TEST: Verify strategies can be executed with consistent results",
+            "ISSUE CHECK: Address any strategy generation issues or logical inconsistencies"
+          ]
+        },
+        {
+          "id": "P2-T7",
+          "title": "Alternative Data Integration",
+          "description": "Set up and test alternative data sources",
+          "steps": [
+            "Configure news sentiment analysis",
+            "Set up social media data integration",
+            "Initialize economic data providers",
+            "Configure data normalization for alternative sources",
+            "Test alternative data processing pipeline",
+            "TEST: Verify alternative data can be used in features",
+            "ISSUE CHECK: Address any integration or quality issues"
+          ]
+        },
+        {
+          "id": "P2-T8",
+          "title": "Data Orchestrator Activation",
+          "description": "Configure and initialize the data orchestrator",
+          "steps": [
+            "Initialize DataOrchestrator component",
+            "Configure pipeline execution modes",
+            "Set up pipeline dependencies and scheduling",
+            "Test orchestrator with multiple pipelines",
+            "Configure monitoring for pipeline execution",
+            "TEST: Verify orchestrator properly manages pipelines",
+            "ISSUE CHECK: Address any orchestration issues"
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "Phase 3: Model Development & Training",
+      "tasks": [
+        {
+          "id": "P3-T1",
+          "title": "Model Registry Setup",
+          "description": "Configure and initialize the model registry",
+          "steps": [
+            "Initialize ModelRegistry",
+            "Configure model storage locations",
+            "Set up model metadata storage",
+            "Configure version control for models",
+            "Initialize model serialization",
+            "TEST: Register and retrieve test models",
+            "ISSUE CHECK: Resolve any storage or retrieval issues"
+          ]
+        },
+        {
+          "id": "P3-T2",
+          "title": "Feature Engineering for ML",
+          "description": "Set up feature engineering specific to ML models",
+          "steps": [
+            "Configure technical indicator generation",
+            "Set up pattern recognition features",
+            "Initialize multi-timeframe feature aggregation",
+            "Configure feature normalization and scaling",
+            "Set up feature selection processes",
+            "TEST: Generate features for book and market data",
+            "ISSUE CHECK: Address any feature quality issues"
+          ]
+        },
+        {          "id": "P3-T3",
+          "title": "Market Data Model Training",
+          "description": "Configure and run model training pipelines",
+          "steps": [
+            "Initialize MarketDataModelTrainer",
+            "Configure model hyperparameters",
+            "Set up train/test/validation splits",
+            "Run training for regression models (price prediction)",
+            "Run training for classification models (direction prediction)",
+            "Train deep learning models (LSTM, CNN, Transformer)",
+            "Set up automated model training pipelines for all symbols",
+            "Train models for multiple timeframes and forecast horizons",
+            "Store trained models in model registry",
+            "Create model performance comparison reports",
+            "TEST: Validate model performance metrics across all model types",
+            "ISSUE CHECK: Address any training issues or underperformance"
+          ]
+        },
+        {          "id": "P3-T4",
+          "title": "Backtesting Framework Activation",
+          "description": "Set up and configure backtesting framework",
+          "steps": [
+            "Initialize BacktestEngine",
+            "Configure transaction cost models (spread, slippage, commission)",
+            "Set up realistic market impact models",
+            "Configure tax cost models for tax-aware backtesting",
+            "Set up performance analytics with all relevant metrics",
+            "Configure data sources for backtesting from src/data/market",
+            "Set up comprehensive reporting for backtests",
+            "Create visualization utilities for backtest results",
+            "Configure multi-asset and multi-strategy backtesting",
+            "Run comprehensive backtests across all trained models",
+            "Run backtests for strategies from knowledge extraction",
+            "Generate strategy comparison reports",
+            "TEST: Verify backtest results accuracy with known outcomes",
+            "ISSUE CHECK: Address any backtest framework issues"
+          ]
+        },
+        {          "id": "P3-T5",
+          "title": "Walk-Forward Analysis Setup",
+          "description": "Configure and run walk-forward analysis",
+          "steps": [
+            "Initialize WalkForwardAnalyzer",
+            "Configure walk-forward window settings",
+            "Set up multiple window sizes for robustness testing",
+            "Configure anchored and non-anchored walk-forward analysis",
+            "Set up model retraining in walk-forward process",
+            "Configure parameter optimization in each window",
+            "Run walk-forward analysis on all trained models",
+            "Run walk-forward analysis on knowledge-extracted strategies",
+            "Generate comprehensive performance reports across time periods",
+            "Create walk-forward optimization dashboard",
+            "TEST: Validate walk-forward methodology with statistical tests",
+            "ISSUE CHECK: Address any walk-forward analysis issues"
+          ]
+        },        {
+          "id": "P3-T6",
+          "title": "Monte Carlo Simulation Setup",
+          "description": "Configure and run Monte Carlo simulations",
+          "steps": [
+            "Initialize MonteCarloSimulator",
+            "Configure comprehensive simulation parameters",
+            "Set up advanced random scenario generation",
+            "Implement multiple simulation techniques (bootstrap, parametric, historical)",
+            "Configure stress testing scenarios with extreme market conditions",
+            "Run Monte Carlo analysis on all trained models and strategies",
+            "Run correlation analysis between strategies under simulated conditions",
+            "Generate comprehensive risk metrics from simulations",
+            "Create risk-adjusted performance metrics from simulation data",
+            "Build confidence interval reporting for expected returns",
+            "Implement drawdown distribution analysis from simulations",
+            "Generate visual reports for simulation outcomes",
+            "TEST: Verify simulation results against theoretical distributions",
+            "ISSUE CHECK: Address any simulation issues or statistical anomalies"
+          ]
+        },
+        {
+          "id": "P3-T7",
+          "title": "Ensemble Framework Activation",
+          "description": "Set up and configure model ensemble framework",
+          "steps": [
+            "Initialize EnsembleFramework",
+            "Configure ensemble methods (voting, stacking, etc.)",
+            "Set up model weight optimization",
+            "Create ensemble models from base models",
+            "Test ensemble performance against individual models",
+            "Store ensemble models in registry",
+            "TEST: Verify ensemble improves performance",
+            "ISSUE CHECK: Address any ensemble issues"
+          ]
+        },
+        {
+          "id": "P3-T8",
+          "title": "Model Deployment Pipeline",
+          "description": "Set up model deployment pipeline",
+          "steps": [
+            "Initialize ModelDeployer",
+            "Configure model deployment settings",
+            "Set up A/B testing framework",
+            "Configure model versioning for deployment",
+            "Create model rollback mechanisms",
+            "Deploy test models to production environment",
+            "TEST: Verify deployed models work correctly",
+            "ISSUE CHECK: Address any deployment issues"
+          ]
+        },
+        {
+          "id": "P3-T9",
+          "title": "Model Monitoring Setup",
+          "description": "Configure model monitoring and performance tracking",
+          "steps": [
+            "Initialize ModelMonitor",
+            "Configure drift detection settings",
+            "Set up performance degradation alerts",
+            "Configure automatic retraining triggers",
+            "Set up model health metrics collection",
+            "TEST: Verify monitoring captures issues",
+            "ISSUE CHECK: Address any monitoring gaps"
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "Phase 4: Trading Engine & Risk Management",
+      "tasks": [
+        {
+          "id": "P4-T1",
+          "title": "Trading Engine Initialization",
+          "description": "Configure and start the trading engine",
+          "steps": [
+            "Initialize TradingEngine component",
+            "Configure SignalGenerator settings",
+            "Set up OrderManager component",
+            "Configure TradingEngineIntegrator",
+            "Initialize ModelTradingBridgeIntegration",
+            "TEST: Process test predictions through engine",
+            "ISSUE CHECK: Address any engine initialization issues"
+          ]
+        },
+        {
+          "id": "P4-T2",
+          "title": "Execution Strategies Setup",
+          "description": "Configure and test execution strategies",
+          "steps": [
+            "Initialize ExecutionFactory",
+            "Configure ImmediateExecution strategy",
+            "Set up TWAPExecution strategy",
+            "Configure MarketImpactEstimator",
+            "Test all execution strategies",
+            "TEST: Verify execution strategy selection logic",
+            "ISSUE CHECK: Address any execution issues"
+          ]
+        },
+        {
+          "id": "P4-T3",
+          "title": "Trade Lifecycle Management Setup",
+          "description": "Configure trade lifecycle tracking and management",
+          "steps": [
+            "Initialize TradeLifecycleManager",
+            "Configure trade state transitions",
+            "Set up TradeReporter",
+            "Test trade lifecycle from creation to completion",
+            "Configure trade event handling",
+            "TEST: Verify all trade lifecycle stages",
+            "ISSUE CHECK: Address any lifecycle management issues"
+          ]
+        },
+        {
+          "id": "P4-T4",
+          "title": "Risk Management System Activation",
+          "description": "Configure and initialize risk management components",
+          "steps": [
+            "Initialize AdvancedRiskManager",
+            "Configure RiskMetricsCalculator with appropriate parameters",
+            "Set up PortfolioRiskManager",
+            "Configure PositionSizer",
+            "Set up StopLossManager",
+            "TEST: Verify risk constraints on sample trades",
+            "ISSUE CHECK: Address any risk management issues"
+          ]
+        },
+        {
+          "id": "P4-T5",
+          "title": "Factor Risk Model Integration",
+          "description": "Configure and initialize factor-based risk models",
+          "steps": [
+            "Initialize FactorRiskModel",
+            "Configure factor model parameters",
+            "Set up FactorRiskModelAdapter",
+            "Initialize RiskModelIntegrator",
+            "Test factor exposure calculations",
+            "TEST: Verify risk decomposition results",
+            "ISSUE CHECK: Address any factor model issues"
+          ]
+        },
+        {
+          "id": "P4-T6",
+          "title": "External Risk Model Integration",
+          "description": "Configure and test external risk model integration",
+          "steps": [
+            "Initialize RiskModelIntegrator",
+            "Configure external model adapters",
+            "Set up model weighting for combined metrics",
+            "Test stress testing scenarios",
+            "Configure correlation consensus mechanisms",
+            "TEST: Verify combined risk metrics",
+            "ISSUE CHECK: Address any integration issues"
+          ]
+        },
+        {
+          "id": "P4-T7",
+          "title": "Portfolio Management Integration",
+          "description": "Configure portfolio integration with trading engine",
+          "steps": [
+            "Initialize PortfolioIntegration",
+            "Configure PortfolioFactory with production settings",
+            "Set up event subscriptions for portfolio updates",
+            "Configure trade execution handling",
+            "Set up portfolio state reporting",
+            "TEST: Execute test trades and verify portfolio updates",
+            "ISSUE CHECK: Address any portfolio integration issues"
+          ]
+        },
+        {
+          "id": "P4-T8",
+          "title": "Multi-Portfolio Support Setup",
+          "description": "Configure multi-portfolio capabilities",
+          "steps": [
+            "Initialize PortfolioRegistry",
+            "Set up portfolio isolation mechanisms",
+            "Configure portfolio-specific event routing",
+            "Set up portfolio grouping and aggregation",
+            "Configure cross-portfolio analysis",
+            "TEST: Create multiple test portfolios and verify isolation",
+            "ISSUE CHECK: Address any multi-portfolio issues"
+          ]
+        },
+        {
+          "id": "P4-T9",
+          "title": "Strategy Engine Activation",
+          "description": "Configure and initialize trading strategies",
+          "steps": [
+            "Initialize StrategyEngine",
+            "Configure strategy parameters",
+            "Set up signal generation and aggregation",
+            "Configure strategy performance tracking",
+            "Load strategies generated from knowledge extraction",
+            "TEST: Run strategies on test data",
+            "ISSUE CHECK: Address any strategy execution issues"
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "Phase Integration & Production Readiness",
+      "tasks": [
+        {
+          "id": "PI-T1",
+          "title": "Master Orchestrator Initialization",
+          "description": "Configure and start the master orchestration system",
+          "steps": [
+            "Initialize MasterOrchestrator",
+            "Configure component registry",
+            "Set up inter-component communication",
+            "Configure startup sequence",
+            "Test full system initialization",
+            "TEST: Verify all components initialize correctly",
+            "ISSUE CHECK: Address any orchestration issues"
+          ]
+        },
+        {
+          "id": "PI-T2",
+          "title": "Phase 1-2 Integration",
+          "description": "Integrate Foundation Infrastructure with Data Pipeline",
+          "steps": [
+            "Initialize InfrastructureDataBridge",
+            "Connect event system to data pipeline",
+            "Set up data cache integration",
+            "Configure security validation for data sources",
+            "Test data flow through infrastructure",
+            "TEST: Verify integrated data processing",
+            "ISSUE CHECK: Address any integration issues"
+          ]
+        },
+        {
+          "id": "PI-T3",
+          "title": "Phase 2-3 Integration",
+          "description": "Integrate Data Pipeline with Model Development",
+          "steps": [
+            "Initialize DataModelBridge",
+            "Set up model-ready data transformation",
+            "Configure feature pipeline for models",
+            "Integrate knowledge features with model training",
+            "Set up continuous data flow to models",
+            "TEST: Verify models receive processed data",
+            "ISSUE CHECK: Address any data-model integration issues"
+          ]
+        },
+        {
+          "id": "PI-T4",
+          "title": "Phase 3-4 Integration",
+          "description": "Integrate Models with Trading Engine",
+          "steps": [
+            "Initialize ModelTradingBridge",
+            "Configure prediction-to-signal conversion",
+            "Set up risk filters for signals",
+            "Configure continuous trading pipeline",
+            "Integrate with ensemble framework",
+            "TEST: Verify signals generate from predictions",
+            "ISSUE CHECK: Address any model-trading integration issues"
+          ]
+        },        {
+          "id": "PI-T5",
+          "title": "End-to-End System Testing",
+          "description": "Run comprehensive end-to-end tests",
+          "steps": [
+            "Configure test data for all phases",
+            "Set up test scenarios for full workflow",
+            "Run data acquisition through to trade execution",
+            "Verify knowledge extraction to strategy execution",
+            "Test error recovery and fallback mechanisms",
+            "Verify real-time integration of all components",
+            "Test system behavior under full production load",
+            "Run continuous operation test for extended period",
+            "TEST: Verify complete system functionality in real-time",
+            "ISSUE CHECK: Address any end-to-end workflow or real-time operation issues"
+          ]
+        },
+        {
+          "id": "PI-T6",
+          "title": "Performance Optimization",
+          "description": "Optimize system performance for production",
+          "steps": [
+            "Profile system components for bottlenecks",
+            "Implement caching strategies",
+            "Optimize database queries",
+            "Configure parallel processing where applicable",
+            "Tune memory usage for critical components",
+            "TEST: Verify performance improvements",
+            "ISSUE CHECK: Address any performance issues"
+          ]
+        },
+        {
+          "id": "PI-T7",
+          "title": "Monitoring & Alerting Setup",
+          "description": "Configure monitoring and alerting for production",
+          "steps": [
+            "Set up system health monitoring",
+            "Configure performance metric collection",
+            "Set up alerting for critical errors",
+            "Configure dashboard for system status",
+            "Test alert triggers and notifications",
+            "TEST: Verify monitoring captures issues",
+            "ISSUE CHECK: Address any monitoring gaps"
+          ]
+        },
+        {
+          "id": "PI-T8",
+          "title": "Production Configuration",
+          "description": "Prepare production-specific configuration",
+          "steps": [
+            "Create production configuration files",
+            "Configure security settings for production",
+            "Set up backup and recovery procedures",
+            "Configure scaling parameters",
+            "Set up log rotation and management",
+            "TEST: Verify production configuration",
+            "ISSUE CHECK: Address any production configuration issues"
+          ]
+        },
+        {          "id": "PI-T9",
+          "title": "System Startup Script",
+          "description": "Create unified system startup script",
+          "steps": [
+            "Create master startup script",
+            "Configure component startup sequence",
+            "Add dependency checks",
+            "Implement logging for startup process",
+            "Add error handling and recovery",
+            "Set up automatic data source validation on startup",
+            "Configure automatic model loading on startup",
+            "Set up health checks for all system components",
+            "Implement graceful shutdown procedures",
+            "TEST: Verify full system starts correctly",
+            "ISSUE CHECK: Address any startup issues"
+          ]
+        },        {
+          "id": "PI-T10",
+          "title": "Full Codebase Validation",
+          "description": "Validate that all codebase files are properly used",
+          "steps": [
+            "Create comprehensive inventory of all Python files in codebase",
+            "Generate detailed file and function usage matrix",
+            "Verify each module is properly imported and used",
+            "Ensure every function has test coverage",
+            "Run static code analysis on all files",
+            "Verify 90%+ test coverage for all modules",
+            "Check for unused or dead code with detailed reporting",
+            "Validate all data processing paths and model implementations",
+            "Confirm all model types (regression, classification, deep learning) have validation",
+            "Verify every backtesting, Monte Carlo, and walk-forward analysis component",
+            "Run comprehensive system test with all components under load conditions",
+            "TEST: Verify no code files are left unused across all system phases",
+            "ISSUE CHECK: Address any code usage issues and document all implementation decisions"
+          ]
+        }
+      ]
+    }
+  ]
+}

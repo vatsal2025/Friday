@@ -1,0 +1,16 @@
+{
+  "pipeline_name": "market_data_pipeline",
+  "total_stages": 4,
+  "stage_names": [
+    "enhanced_validation",
+    "market_data_cleaning",
+    "feature_engineering",
+    "parquet_storage"
+  ],
+  "warn_only_mode": true,
+  "output_directory": "test_output",
+  "enable_all_features": true,
+  "last_run_status": null,
+  "last_run_duration": null,
+  "total_runs": 0
+}

@@ -1,0 +1,89 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dev-debug.log
+
+# Environment variables
+.env
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Project specific
+storage/memory/*
+storage/models/*
+storage/data/*
+storage/logs/*
+!storage/memory/.gitkeep
+!storage/models/.gitkeep
+!storage/data/.gitkeep
+!storage/logs/.gitkeep
+
+# Exclude market data directory
+src/data/market/
+
+# Exclude clone directory
+Friday_clone/
+
+# Exclude large backup files and large data files
+src/orchestration/knowledge_engine/*.bak*
+data/raw/*BRITANNIA*
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Dependency directories
+node_modules/
+
+# Task files
+tasks.json
+tasks/
+
+# Batch files
+install_deps.bat
+create_project_structure.bat
